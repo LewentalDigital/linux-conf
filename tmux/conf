@@ -6,3 +6,7 @@ set -ag status-left "#(uptime | cut -f 4-5 -d ' ' | cut -f 1 -d ',') "
 # split panes using | and - (besides % and ")
 bind | split-window -h
 bind - split-window -v
+
+# enable mouse navigation (use Shift + mouse to select now)
+# Alt + mouse to resize panes
+set -g mouse on
