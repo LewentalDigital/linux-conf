@@ -37,6 +37,7 @@ client.unfocused #F9B572 #F9B572 #000000
 focus_follows_mouse no
 #mettere il float di una window quando trascino il suo title con il mouse
 #aggiungere voci 'file explorer', 'web browser', ecc... a dmenu
+#aggiungere possibilita di resizare lo split delle window con il mouse
 
 
 # start a terminal
