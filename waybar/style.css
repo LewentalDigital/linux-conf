@@ -12,6 +12,10 @@ window#waybar {
     color: #cdd6f4;
 }
 
+window#waybar.solo {
+    /*opacity: 0.2;*/
+}
+
 tooltip {
     background: #1e1e2e;
     border-radius: 10px;
@@ -48,6 +52,7 @@ tooltip {
     border-radius: 10px;
 }
 
+#custom-logo,
 #custom-power_profile,
 #custom-weather,
 #window,
@@ -64,7 +69,6 @@ tooltip {
     opacity: 0.8;
     padding: 0px 10px;
     margin: 3px 0px;
-    margin-top: 10px;
     border: 1px solid #181825;
 }
 
@@ -74,6 +78,12 @@ tooltip {
 
 #temperature.critical {
     color: #eba0ac;
+}
+
+
+#custom-logo {
+    border-radius: 10px;
+    margin-left: 10px;
 }
 
 #backlight {
@@ -107,8 +117,7 @@ tooltip {
 
 #clock {
     color: #fab387;
-    border-radius: 10px 0px 0px 10px;
-    margin-left: 10px;
+    border-radius: 10px;
     border-right: 0px;
 }
 
@@ -123,7 +132,7 @@ tooltip {
     color: #89b4fa;
     border-radius: 0px 10px 10px 0px;
     margin-right: 10px
-} 
+}
 
 #pulseaudio {
     color: #89b4fa;
@@ -141,7 +150,7 @@ tooltip {
 
 #battery {
     color: #a6e3a1;
-    border-radius: 0 10px 10px 0;
+    border-radius: 10px 10px 10px 10px;
     margin-right: 10px;
     border-left: 0px;
 }

@@ -1,51 +1,49 @@
 {
     "layer": "top",
-    "position": "top",
+    "position": "bottom",
     "mod": "dock",
     "exclusive": true,
     "passthrough": false,
     "gtk-layer-shell": true,
-    "height": 50,
-    "modules-left": ["clock","hyprland/workspaces"],
-    "modules-center": ["hyprland/window"],
+    "height": 20,
+    "modules-left": ["custom/logo", "hyprland/workspaces"],
+    "modules-center": ["clock"],
     "modules-right": ["network", "bluetooth","battery","backlight","pulseaudio","pulseaudio#microphone","tray"],
     "hyprland/window": {
         "format": "{}"
+    },
+
+    "custom/logo": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "wofi"
     },
 
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "on-click": "activate",
-		"format": "{name}",
+        "format": "{icon}",
 		"format-icons": {
-				"active": "",
-				"default": "",
-				"persistent": ""
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九",
+            "10": "十",
+            //"active": "",
+    		"default": "",
+	    	"persistent": ""
 		},
-        "persistent_workspaces": {
+        "persistent-workspaces": {
             "1": [],
             "2": [],
             "3": []
-        }
-    },
-    
-    "custom/power_profile":{
-        //shows the current power profile and switches to next on click
-        "exec": "asusctl profile -p | sed s:'Active profile is'::",
-        "interval": 30,
-        "format": "󰈐{}", 
-        "on-click": "asusctl profile -n; pkill -SIGRTMIN+8 waybar",
-        "signal": 8
-    },
-
-   "custom/weather" : {
-        //shows the current weather and forecast
-        "tooltip" : true,
-        "format" : "{}",
-        "interval" : 30,
-        "exec" : "~/.config/waybar/scripts/waybar-wttr.py",
-        "return-type" : "json"
+        },
     },
 
     "tray": {
@@ -56,17 +54,18 @@
     "clock": {
         "tooltip-format": "<tt>{calendar}</tt>",
 		"format": "{:%H:%M}",
-
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
 
     "backlight": {
         "device": "intel_backlight",
-        "format": "{icon} {percent}%",
-        "format-icons": ["󰃞", "󰃟", "󰃠"],
-        "on-scroll-up": "brightnessctl set 1%+",
-        "on-scroll-down": "brightnessctl set 1%-",
-        "min-length": 6
+        "format": "{icon}",
+        "interval": 2,
+        "rotate": 1,
+	    "format-icons": ["","","","","","","","","","","","","","",""],
+        "on-scroll-up": "brightnessctl set 2%+",
+        "on-scroll-down": "brightnessctl set 2%-",
+	    "tooltip-format": "{percent}%"
     },
 
     "battery": {
@@ -78,17 +77,17 @@
         "format": "{icon} {capacity}%",
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
-        "format-alt": "{time} {icon}",
-        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+        "format-full": "Charged ",
+        "format-icons": ["", "", "", "", ""]
     },
 
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "tooltip": false,
-        "format-muted": " Muted",
-        "on-click": "pamixer -t",
-        "on-scroll-up": "pamixer -i 5",
-        "on-scroll-down": "pamixer -d 5",
+        "format-muted": "",
+        "on-click": "pavucontrol",
+        "on-scroll-up": "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-down": "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-",
         "scroll-step": 5,
         "format-icons": {
             "headphone": "",
@@ -104,10 +103,10 @@
     "pulseaudio#microphone": {
         "format": "{format_source}",
         "format-source": " {volume}%",
-        "format-source-muted": " Muted",
+        "format-source-muted": "",
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 	},
-    
+
     "temperature": {
         "thermal-zone": 1,
         "format": "{temperatureF}°F ",
@@ -117,13 +116,14 @@
 
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "  {signalStrength}%",
-        "format-ethernet": "{ipaddr}/{cidr}",
-        "tooltip-format": "{essid} - {ifname} via {gwaddr}",
+        "format-wifi": "{icon}",
+        "format-ethernet": "󰌘",
+        "format-disconnected": "󰌙",
         "format-linked": "{ifname} (No IP)",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}:{essid} {ipaddr}/{cidr}"
-    },
+        "tooltip-format": "{essid}: {signalStrength}% - {gwaddr}",
+        "tooltip-format-disconnected": "󰌙 Disconnected",
+        "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
+	},
 
     "bluetooth": {
 	    "format": " {status}",
@@ -131,6 +131,7 @@
 	    "format-connected": " {num_connections}",
 	    "tooltip-format": "{device_alias}",
 	    "tooltip-format-connected": " {device_enumerate}",
-	    "tooltip-format-enumerate-connected": "{device_alias}"
+	    "tooltip-format-enumerate-connected": "{device_alias}",
+		"on-click": "blueman-manager"
     }
 }
