@@ -6,7 +6,7 @@
     "passthrough": false,
     "gtk-layer-shell": true,
     "height": 20,
-    "modules-left": ["custom/logo", "hyprland/workspaces"],
+    "modules-left": ["custom/logo", "hyprland/workspaces", "wlr/taskbar"],
     "modules-center": ["clock"],
     "modules-right": ["network", "bluetooth","battery","backlight","pulseaudio","pulseaudio#microphone","tray"],
     "hyprland/window": {
@@ -14,7 +14,7 @@
     },
 
     "custom/logo": {
-        "format": "",
+        "format": "⌬", //⽔
         "tooltip": false,
         "on-click": "wofi"
     },
@@ -46,6 +46,25 @@
         },
     },
 
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 22,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "ignore-list": [
+           "Alacritty"
+        ],
+        "app_ids-mapping": {
+            "firefoxdeveloperedition": "firefox-developer-edition"
+        },
+        "rewrite": {
+            "Firefox Web Browser": "Firefox",
+            "Foot Server": "Terminal"
+        }
+    },
+
+
     "tray": {
         "icon-size": 18,
         "spacing": 10
@@ -60,7 +79,6 @@
     "backlight": {
         "device": "intel_backlight",
         "format": "{icon}",
-        "interval": 2,
         "rotate": 1,
 	    "format-icons": ["","","","","","","","","","","","","","",""],
         "on-scroll-up": "brightnessctl set 2%+",
@@ -117,12 +135,12 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{icon}",
-        "format-ethernet": "󰌘",
-        "format-disconnected": "󰌙",
+        "format-ethernet": "",
+        "format-disconnected": "",
         "format-linked": "{ifname} (No IP)",
         "tooltip-format": "{essid}: {signalStrength}% - {gwaddr}",
-        "tooltip-format-disconnected": "󰌙 Disconnected",
-        "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
+        "tooltip-format-disconnected": "Disconnected",
+        "format-icons": ["",],
 	},
 
     "bluetooth": {
