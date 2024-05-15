@@ -1,30 +1,43 @@
 {
     "layer": "top",
     "position": "bottom",
-    "mod": "dock",
+    // "mode": "dock",
     "exclusive": true,
     "passthrough": false,
     "gtk-layer-shell": true,
-    "height": 20,
-    "modules-left": ["custom/logo", "hyprland/workspaces", "wlr/taskbar"],
-    "modules-center": ["clock"],
-    "modules-right": ["network", "bluetooth","battery","backlight","pulseaudio","pulseaudio#microphone","tray"],
+    // "height": 20,
+    "modules-left": [
+        "custom/logo",
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "wlr/taskbar"
+    ],
+    "modules-right": [
+        "network",
+        "bluetooth",
+        "battery",
+        "backlight",
+        "pulseaudio",
+        "pulseaudio#microphone",
+        "tray",
+        "custom/notification",
+        "clock"
+    ],
     "hyprland/window": {
         "format": "{}"
     },
-
     "custom/logo": {
-        "format": "⌬", //⽔
+        "format": "⽔", //⌬
         "tooltip": false,
-        "on-click": "wofi"
+        "on-click": "pkill wofi || wofi"
     },
-
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "on-click": "activate",
         "format": "{icon}",
-		"format-icons": {
+        "format-icons": {
             "1": "一",
             "2": "二",
             "3": "三",
@@ -35,25 +48,24 @@
             "8": "八",
             "9": "九",
             "10": "十",
-            //"active": "",
-    		"default": "",
-	    	"persistent": ""
-		},
-        "persistent-workspaces": {
-            "1": [],
-            "2": [],
-            "3": []
-        },
+            "active": "",
+            "default": "",
+            "persistent": ""
+        }
+        // "persistent-workspaces": {
+        //     "1": [],
+        //     "2": [],
+        //     "3": []
+        // }
     },
-
     "wlr/taskbar": {
         "format": "{icon}",
-        "icon-size": 22,
+        "icon-size": 25,
         "tooltip-format": "{title}",
         "on-click": "activate",
         "on-click-middle": "close",
         "ignore-list": [
-           "Alacritty"
+            "Alacritty"
         ],
         "app_ids-mapping": {
             "firefoxdeveloperedition": "firefox-developer-edition"
@@ -63,47 +75,80 @@
             "Foot Server": "Terminal"
         }
     },
-
-
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "<span foreground='red'><small><sup>⬤</sup></small></span>",
+            "none": " ",
+            "dnd-notification": "<span foreground='red'><small><sup>⬤</sup></small></span>",
+            "dnd-none": " "
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
     "tray": {
         "icon-size": 18,
         "spacing": 10
     },
-
     "clock": {
-        "tooltip-format": "<tt>{calendar}</tt>",
-		"format": "{:%H:%M}",
+        "format": "{:%H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
-
     "backlight": {
         "device": "intel_backlight",
         "format": "{icon}",
         "rotate": 1,
-	    "format-icons": ["","","","","","","","","","","","","","",""],
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
         "on-scroll-up": "brightnessctl set 2%+",
         "on-scroll-down": "brightnessctl set 2%-",
-	    "tooltip-format": "{percent}%"
+        "tooltip-format": "{percent}%"
     },
-
     "battery": {
         "states": {
             "good": 95,
             "warning": 30,
             "critical": 20
         },
-        "format": "{icon} {capacity}%",
+        "format": "{icon}",
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
         "format-full": "Charged ",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "tooltip-format": "{capacity}%"
     },
-
     "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "tooltip": false,
+        "format": "{icon}",
+        "tooltip-format": "{volume}%",
         "format-muted": "",
-        "on-click": "pavucontrol",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pavucontrol",
         "on-scroll-up": "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+",
         "on-scroll-down": "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-",
         "scroll-step": 5,
@@ -114,24 +159,27 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": [
+                "",
+                "",
+                ""
+            ]
         }
     },
-
     "pulseaudio#microphone": {
         "format": "{format_source}",
+        "tooltip": false,
         "format-source": " {volume}%",
         "format-source-muted": "",
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-	},
-
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "on-click-right": "pavucontrol"
+    },
     "temperature": {
         "thermal-zone": 1,
         "format": "{temperatureF}°F ",
         "critical-threshold": 80,
         "format-critical": "{temperatureC}°C "
     },
-
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{icon}",
@@ -140,16 +188,18 @@
         "format-linked": "{ifname} (No IP)",
         "tooltip-format": "{essid}: {signalStrength}% - {gwaddr}",
         "tooltip-format-disconnected": "Disconnected",
-        "format-icons": ["",],
-	},
-
+        "format-icons": [
+            ""
+        ]
+    },
     "bluetooth": {
-	    "format": " {status}",
-	    "format-disabled": "", // an empty format will hide the module
-	    "format-connected": " {num_connections}",
-	    "tooltip-format": "{device_alias}",
-	    "tooltip-format-connected": " {device_enumerate}",
-	    "tooltip-format-enumerate-connected": "{device_alias}",
-		"on-click": "blueman-manager"
+        // "format": " {status}",
+        "format": "",
+        "format-disabled": "", // an empty format will hide the module
+        "format-connected": " {num_connections}",
+        "tooltip-format": "{device_alias}",
+        "tooltip-format-connected": " {device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "on-click": "blueman-manager"
     }
 }
