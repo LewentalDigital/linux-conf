@@ -1,7 +1,6 @@
 set number
 set tabstop=4
 set mouse=a
-colorscheme darkblue
 
 " Netrw File browser
 let g:netrw_banner=0
@@ -18,3 +17,9 @@ let g:netrw_localcopydircmd='cp -r'
 "augroup END
 " Auto focus on file if nvim is opened with file argument
 autocmd VimEnter * if (argc() > 0 && filereadable(argv()[0])) | wincmd l | endif
+
+
+nnoremap <C-s> <Esc>:w<CR>
+nnoremap <C-q> <Esc>:q<CR>
+nnoremap <Space>w <Esc>:w<CR>
+nnoremap <Space>q <Esc>:q<CR>

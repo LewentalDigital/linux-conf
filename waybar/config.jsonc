@@ -102,7 +102,7 @@
     "backlight": {
         "device": "intel_backlight",
         "format": "{icon}",
-        "rotate": 1,
+        "rotate": 0.5,
         "format-icons": [
             "",
             "",
@@ -120,8 +120,9 @@
             "",
             ""
         ],
-        "on-scroll-up": "brightnessctl set 2%+",
-        "on-scroll-down": "brightnessctl set 2%-",
+        "on-scroll-up": "swayosd-client --brightness +5",
+        "on-scroll-down": "swayosd-client --brightness -10",
+		"reverse-scrolling":true,
         "tooltip-format": "{percent}%"
     },
     "battery": {
@@ -147,10 +148,11 @@
         "format": "{icon}",
         "tooltip-format": "{volume}%",
         "format-muted": "",
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click": "swayosd-client --output-volume mute-toggle",
         "on-click-right": "pavucontrol",
-        "on-scroll-up": "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+",
-        "on-scroll-down": "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-",
+        "on-scroll-up": "swayosd-client --output-volume +4 --max-volume 100",
+        "on-scroll-down": "swayosd-client --output-volume -4 --max-volume 100",
+		"reverse-scrolling":true,
         "scroll-step": 5,
         "format-icons": {
             "headphone": "",
@@ -171,7 +173,7 @@
         "tooltip": false,
         "format-source": " {volume}%",
         "format-source-muted": "",
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "on-click": "swayosd-client --input-volume mute-toggle",
         "on-click-right": "pavucontrol"
     },
     "temperature": {
