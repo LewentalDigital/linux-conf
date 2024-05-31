@@ -1,15 +1,15 @@
+@import './colors.css';
+
 * {
-    border: none;
-    border-radius: 0;
     font-family: "JetBrainsMono Nerd Font";
-    font-weight: bold;
-    font-size: 15px;
-    min-height: 0;
+    font-size: 14px;
+    animation: unset;
 }
 
 window#waybar {
-    background: #333333;
-    color: #cdd6f4;
+    /* background: @background; */
+    background: rgba(29, 29, 29, 0.5);
+    color: @text;
 }
 
 window#waybar.fullscreen {
@@ -19,8 +19,7 @@ window#waybar.fullscreen {
 #waybar.solo #window {
     background: yellow;
     color: red;
-  }
-
+}
 
 window#waybar.solo {
     color: #00ff62;
@@ -33,158 +32,127 @@ window#waybar.empty {
 }
 
 tooltip {
-    background: #1e1e2e;
-    border-radius: 10px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #11111b;
+    border: unset;
+    border-radius: unset;
+    background: @tooltip_background;
+}
+
+
+/* 
+** ALL MODULES
+*/
+.module {
+    margin: 0 0px;
+    padding: 0 5px;
+}
+
+.module:hover {
+    background: #545454;
+}
+
+
+/* 
+** WORKSPACES
+*/
+
+#workspaces {
+    padding: unset;
+}
+
+#workspaces:hover {
+    background: unset;
 }
 
 #workspaces button {
-    padding: 7px;
-    color: #313244;
-    color: #a6adc8;
+    color: @text;
+    border-radius: unset;
+    border: unset;
+    animation: unset;
+}
+
+#workspaces button.focused {}
+
+#workspaces button.urgent {}
+
+#workspaces button:hover {
+    background: #545454;
+    border: unset;
 }
 
 #workspaces button.active {
-    color: #a6adc8;
+    border-bottom: 3px solid #3b8ffc;
 }
 
-#workspaces button.focused {
-    color: #a6adc8;
-    background: #eba0ac;
-    border-radius: 6px;
+/* 
+** TASKBAR: list of programs
+*/
+
+#taskbar {
+    background: none;
 }
 
-#workspaces button.urgent {
-    color: #11111b;
-    background: #a6e3a1;
-    border-radius: 6px;
+#taskbar button {
+
+    border: unset;
+    border-radius: unset;
+    animation: unset;
 }
 
-#workspaces button:hover {
-    background: #11111b;
-    color: #cdd6f4;
-    border-radius: 6px;
+#taskbar button:hover {
+    background: #545454;
+    border: unset;
 }
 
-#custom-logo,
-#custom-notification,
-#window,
-#taskbar,
-#clock,
-#battery,
-#pulseaudio,
-#network,
-#bluetooth,
-#workspaces,
-#tray,
-#backlight {
-    background: #1e1e2e;
-    opacity: 0.8;
-    padding: 0px 10px;
-    margin: 3px 0px;
-    border: 1px solid #181825;
+#taskbar button.active {
+    border-bottom: 3px solid #3b8ffc;
 }
+
+
+/*
+** START MENU
+*/
 
 #custom-logo {
-    border-radius: 6px;
-    margin-left: 6px;
+    padding: 0 10px;
 }
 
-#custom-notification {
-    border-radius: 6px;
-    margin-right: 6px;
-    padding: 0;
-    padding-left: 6px;
 
+/* 
+** TRAY
+*/
+
+#tray {}
+
+#tay>*:hover {
+    background: #545454;
 }
+
+#custom-notification {}
+
+
+/* 
+** OTHER MODULES
+*/
+
+#clock {
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+#backlight {}
+
+#network {}
+
+#bluetooth {}
+
+#pulseaudio {}
+
+#pulseaudio.microphone {}
+
+#battery {}
+
 #pulseaudio:hover,
 #pulseaudio.microphone:hover,
 #tray:hover,
 #custom-notification:hover,
-#custom-logo:hover {
-    background: #484848;
-    color: #cdd6f4;
-}
-
-#backlight {
-    border-radius: 6px 0px 0px 6px;
-}
-
-#tray {
-    border-radius: 6px;
-    margin-right: 10px;
-}
-
-#workspaces {
-    border-radius: 6px;
-    margin-left: 10px;
-    padding-right: 0px;
-    padding-left: 0px;
-}
-
-#taskbar {
-    border-radius: 6px;
-    padding-right: 0px;
-    padding-left: 0px;
-    background: none;
-    border: unset;
-}
-
-#taskbar button:hover {
-    border-radius: 6px;
-    background: #1e1e2e;
-}
-
-#taskbar button.active {
-    border-radius: 6px;
-    background: #1e1e2e;
-    border: 1px solid #181825;
-}
-
-#window {
-    border-radius: 6px;
-    margin-left: 60px;
-    margin-right: 60px;
-}
-
-#clock {
-    color: #fab387;
-    border-radius: 6px;
-    margin-right: 6px;
-}
-
-#network {
-    color: #f9e2af;
-    border-radius: 6px 0px 0px 6px;
-    border-left: 0px;
-    border-right: 0px;
-}
-
-#bluetooth {
-    color: #89b4fa;
-    border-radius: 0px 6px 6px 0px;
-    margin-right: 10px
-}
-
-#pulseaudio {
-    color: #89b4fa;
-    border-left: 0px;
-    border-right: 0px;
-}
-
-#pulseaudio.microphone {
-    color: #cba6f7;
-    border-left: 0px;
-    border-right: 0px;
-    border-radius: 0px 6px 6px 0px;
-    margin-right: 10px;
-}
-
-#battery {
-    color: #a6e3a1;
-    border-radius: 6px;
-    margin-right: 10px;
-    border-left: 0px;
-}
+#custom-logo:hover {}
