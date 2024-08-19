@@ -1,38 +1,101 @@
 // Place your key bindings in this file to override the defaults
 [
+    // Python shortcuts
     {
         "key": "f9",
         "command": "workbench.action.tasks.runTask",
-        "args": "compile"
+        "args": "run py",
+        "when": "editorLangId == python"
     },
     {
         "key": "f10",
         "command": "workbench.action.tasks.runTask",
-        "args": "run"
+        "args": "run py",
+        "when": "editorLangId == python"
     },
     {
         "key": "f12",
         "command": "workbench.action.tasks.runTask",
-        "args": "Compile & Run"
+        "args": "run py",
+        "when": "editorLangId == python"
+    },
+    // Java shortcuts
+    {
+        "key": "f9",
+        "command": "workbench.action.tasks.runTask",
+        "args": "compile java",
+        "when": "editorLangId == java"
     },
     {
-        "key": "ctrl+shift+alt+enter",
-        "command": "github.copilot.generate",
-        "when": "editorTextFocus && github.copilot.activated && !inInteractiveInput && !interactiveEditorFocused"
+        "key": "f10",
+        "command": "workbench.action.tasks.runTask",
+        "args": "run java",
+        "when": "editorLangId == java"
     },
+    {
+        "key": "f12",
+        "command": "workbench.action.tasks.runTask",
+        "args": "compile and run java",
+        "when": "editorLangId == java"
+    },
+    // C shortcuts
+    {
+        "key": "f9",
+        "command": "workbench.action.tasks.runTask",
+        "args": "compile c",
+        "when": "editorLangId == c"
+    },
+    {
+        "key": "f10",
+        "command": "workbench.action.tasks.runTask",
+        "args": "run c",
+        "when": "editorLangId == c"
+    },
+    {
+        "key": "f12",
+        "command": "workbench.action.tasks.runTask",
+        "args": "compile and run c",
+        "when": "editorLangId == c"
+    },
+    // C++ shortcuts
+    {
+        "key": "f9",
+        "command": "workbench.action.tasks.runTask",
+        "args": "compile cpp",
+        "when": "editorLangId == cpp"
+    },
+    {
+        "key": "f10",
+        "command": "workbench.action.tasks.runTask",
+        "args": "run cpp",
+        "when": "editorLangId == cpp"
+    },
+    {
+        "key": "f12",
+        "command": "workbench.action.tasks.runTask",
+        "args": "compile and run cpp",
+        "when": "editorLangId == cpp"
+    },
+    // ------------------------------ Custom key bindings ------------------------------ //
+
+    // insert line below
     {
         "key": "ctrl+enter",
-        "command": "-github.copilot.generate",
-        "when": "editorTextFocus && github.copilot.activated && !inInteractiveInput && !interactiveEditorFocused"
+        "command": "editor.action.insertLineAfter",
+        "when": "editorTextFocus && !editorReadonly"
     },
+
+    // change all occurrences
+    {
+        "key": "ctrl+f2",
+        "command": "editor.action.changeAll",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    
+    // move lines up and down
     {
         "key": "alt+down",
         "command": "editor.action.moveLinesDownAction",
-        "when": "editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "alt+down",
-        "command": "-editor.action.moveLinesDownAction",
         "when": "editorTextFocus && !editorReadonly"
     },
     {
@@ -40,41 +103,20 @@
         "command": "editor.action.moveLinesUpAction",
         "when": "editorTextFocus && !editorReadonly"
     },
-    {
-        "key": "alt+up",
-        "command": "-editor.action.moveLinesUpAction",
-        "when": "editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "ctrl+shift+alt+up",
-        "command": "editor.action.insertCursorAbove",
-        "when": "editorTextFocus"
-    },
-    {
-        "key": "shift+alt+up",
-        "command": "-editor.action.insertCursorAbove",
-        "when": "editorTextFocus"
-    },
-    {
-        "key": "shift+alt+down",
-        "command": "editor.action.copyLinesDownAction",
-        "when": "editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "ctrl+shift+alt+down",
-        "command": "-editor.action.copyLinesDownAction",
-        "when": "editorTextFocus && !editorReadonly"
-    },
+
+    // copy lines up and down
     {
         "key": "shift+alt+up",
         "command": "editor.action.copyLinesUpAction",
         "when": "editorTextFocus && !editorReadonly"
     },
     {
-        "key": "ctrl+shift+alt+up",
-        "command": "-editor.action.copyLinesUpAction",
+        "key": "shift+alt+down",
+        "command": "editor.action.copyLinesDownAction",
         "when": "editorTextFocus && !editorReadonly"
     },
+
+    // toggle comment
     {
         "key": "ctrl+[Backslash]",
         "command": "editor.action.commentLine",
@@ -82,17 +124,77 @@
     },
     {
         "key": "ctrl+shift+7",
-        "command": "-editor.action.commentLine",
-        "when": "editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "ctrl+shift+7",
         "command": "editor.action.commentLine",
         "when": "editorTextFocus && !editorReadonly"
+    },
+
+    // format document
+    {
+        "key": "shift+alt+f",
+        "command": "editor.action.formatDocument",
+        "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+    },
+    {
+        "key": "ctrl+shift+i",
+        "command": "editor.action.formatDocument",
+        "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+    },
+
+    // multi line cursor
+    {
+        "key": "ctrl+shift+up",
+        "command": "editor.action.insertCursorAbove",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+down",
+        "command": "editor.action.insertCursorBelow",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+alt+up",
+        "command": "editor.action.insertCursorAbove",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+alt+down",
+        "command": "editor.action.insertCursorBelow",
+        "when": "editorTextFocus"
+    },
+
+    // open folder
+    {
+        "key": "ctrl+shift+o",
+        "command": "workbench.action.files.openFolder",
+        "when": "openFolderWorkspaceSupport"
+    },
+
+    // Copilot suggestion
+    {
+        "key": "ctrl+shift+alt+enter",
+        "command": "github.copilot.generate",
+        "when": "editorTextFocus && github.copilot.activated && !inInteractiveInput && !interactiveEditorFocused"
+    },
+
+    // removed conflicting key binds
+    {
+        "key": "ctrl+enter",
+        "command": "-github.copilot.generate",
+        "when": "editorTextFocus && github.copilot.activated && !inInteractiveInput && !interactiveEditorFocused"
     },
     {
         "key": "ctrl+enter",
         "command": "-github.copilot.generate",
         "when": "editorTextFocus && github.copilot.activated && !commentEditorFocused && !inInteractiveInput && !interactiveEditorFocused"
-    }
+    },
+    {
+        "key": "ctrl+shift+alt+up",
+        "command": "-editor.action.copyLinesUpAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+alt+down",
+        "command": "-editor.action.copyLinesDownAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
 ]
