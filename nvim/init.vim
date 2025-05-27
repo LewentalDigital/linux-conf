@@ -18,6 +18,9 @@ let g:netrw_localcopydircmd='cp -r'
 " Auto focus on file if nvim is opened with file argument
 autocmd VimEnter * if (argc() > 0 && filereadable(argv()[0])) | wincmd l | endif
 
+" theme and transparent background
+colorscheme unokai
+highlight Normal ctermbg=none guibg=none
 
 nnoremap <C-s> <Esc>:w<CR>
 nnoremap <C-q> <Esc>:q<CR>

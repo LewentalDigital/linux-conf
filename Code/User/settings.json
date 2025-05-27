@@ -1,28 +1,24 @@
 {
-    "files.exclude": {
-        "**/.classpath": true,
-        "**/.project": true,
-        "**/.settings": true,
-        "**/.factorypath": true
-    },
-    "[html]": {
-        "editor.defaultFormatter": "lonefy.vscode-JS-CSS-HTML-formatter"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "lonefy.vscode-JS-CSS-HTML-formatter"
-    },
-    "[css]": {
-        "editor.defaultFormatter": "vscode.css-language-features"
-    },
-    "C_Cpp.clang_format_fallbackStyle": "{BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0}",
-    "[python]": {
-        "editor.formatOnType": true
-    },
-    "[php]": {
-        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
-    },
-    "Lua.telemetry.enable": false,
-    "intelephense.format.braces": "k&r",
+    //
+    // BEHAVIOUR
+    //
+
+    "telemetry.telemetryLevel": "off",
+        
+    "workbench.startupEditor": "none",
+
+    "files.autoSave": "onFocusChange",
+    
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmPasteNative": false,
+    "explorer.confirmDelete": false,
+    
+    "window.customTitleBarVisibility": "windowed",
+    "window.confirmSaveUntitledWorkspace": false,
+
+    "editor.selectionClipboard": false,
+    "editor.suggestSelection": "recentlyUsedByPrefix",
+
     "cmake.showOptionsMovedNotification": false,
 
     "github.copilot.enable": {
@@ -34,39 +30,103 @@
     
     "git.confirmSync": false,
     "git.autofetch": true,
-    
-    "terminal.integrated.smoothScrolling": true,
-    "telemetry.telemetryLevel": "off",
-    "breadcrumbs.enabled": false,
-    "files.autoSave": "onFocusChange",
-    
-    "explorer.confirmDragAndDrop": false,
-    "explorer.confirmPasteNative": false,
-    "explorer.confirmDelete": false,
+    "git.openRepositoryInParentFolders": "never",
 
-    "workbench.preferredLightColorTheme": "Monokai Dimmed",
-    "workbench.preferredDarkColorTheme": "Default Dark Modern",
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.activityBar.location": "top",
-    "workbench.startupEditor": "none",
-    "workbench.layoutControl.enabled": false,
-    
-    "window.autoDetectColorScheme": true,
-    "window.titleBarStyle": "custom",
-    "window.customTitleBarVisibility": "auto",
-    "window.menuBarVisibility": "visible",
-    "window.commandCenter": false,
-    "window.confirmSaveUntitledWorkspace": false,
 
-    "editor.mouseWheelScrollSensitivity": 2,
-    "editor.selectionClipboard": false,
-    "editor.cursorSmoothCaretAnimation": "on",
-    "editor.smoothScrolling": true,
+    
+    //
+    // LOOK AND FEEL
+    //
+
+    // GENERAL
+    // "editor.parameterHints.enabled": false,
+    // "editor.inlayHints.enabled": "off",
+    // "editor.inlineSuggest.enabled": false,
+    "zenMode.fullScreen": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.renderWhitespace": "none",
+    
+    
+    // FONT
     "editor.fontFamily": "Jetbrains Mono",
     "editor.fontLigatures": true,
-    "editor.suggestSelection": "recentlyUsedByPrefix",
+    "editor.fontSize": 15,
+
+
+    // THEME
+    "workbench.preferredLightColorTheme": "Monokai Pro",
+    "workbench.preferredDarkColorTheme": "Default Dark Modern",
+    "workbench.iconTheme": "material-icon-theme",
+    "window.autoDetectColorScheme": true,
+
+
+    // TOP 
+
+    // TITLE BAR
+    "window.titleBarStyle": "custom",
+    "window.title": "${folderName}",
+    "window.menuBarVisibility": "toggle",
+    "window.commandCenter": false,
+    "chat.commandCenter.enabled": false,
+    "workbench.layoutControl.enabled": true,
+    "workbench.layoutControl.type": "toggles",
+
+    // TABS
+    // "workbench.editor.showTabs": "none",
+    // "workbench.editor.tabActionCloseVisibility": false,
+    "workbench.editor.showIcons": false,
+    
+
+    // BOTTOM
+    "workbench.statusBar.visible": false,
+
+
+    // SIDEBAR
+    "workbench.sideBar.location": "right",
+    "workbench.tree.renderIndentGuides": "none",
+    "workbench.tree.indent": 12,
+    "workbench.activityBar.location": "bottom",
+
+    // EXPLORER
+    "explorer.decorations.colors": false,
+    "explorer.compactFolders": false,
+    "explorer.autoReveal": false,
+    
+    // GIT
+    "scm.defaultViewMode": "tree",
+
+
+    // EDITOR
+    "breadcrumbs.enabled": false,
+    "window.density.editorTabHeight": "default",
+    "workbench.editor.pinnedTabSizing": "compact",
+    "workbench.editor.editorActionsLocation": "default",
+    "editor.guides.indentation": false,
+    // "editor.guides.bracketPairsHorizontal": false,
+    "editor.renderLineHighlight": "gutter",
+    // "editor.guides.highlightActiveBracketPair": false,
+    // "editor.bracketPairColorization.enabled": false,
+    // "editor.padding.bottom": 14,
+    // "editor.padding.top": 14,
+    // "editor.foldingHighlight": false,
+    // "editor.codeLens": false,
     "editor.minimap.enabled": false,
+    "editor.occurrencesHighlight": "off",
     "editor.suggest.showStatusBar": true,
-    "editor.renderWhitespace": "none",
+
+    // CURSOR/CARET
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.cursorBlinking": "phase",
+
+    // NUMBER ROW
+    "editor.glyphMargin": false,
+    "editor.showFoldingControls": "never",
+
+    // SCROLLBARS
+    // "editor.hideCursorInOverviewRuler": true,
+    // "editor.scrollbar.horizontal": "hidden",
+    // "editor.scrollbar.vertical": "hidden",
+    // "editor.scrollbar.verticalScrollbarSize": 12,  
+    "editor.overviewRulerBorder": false,
 
 }

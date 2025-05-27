@@ -1,0 +1,14 @@
+[Added Associations]
+image/jpeg=org.gnome.Loupe.desktop;
+image/png=org.gnome.Loupe.desktop;
+video/mp4=com.github.rafostar.Clapper.desktop;
+application/x-zerosize=code.desktop;
+text/plain=code.desktop;
+application/pdf=org.gnome.Papers.desktop;
+audio/x-vorbis+ogg=org.gnome.Decibels.desktop;
+
+[Default Applications]
+image/jpeg=org.gnome.Loupe.desktop
+text/plain=code.desktop
+application/pdf=org.gnome.Papers.desktop
+audio/x-vorbis+ogg=org.gnome.Decibels.desktop

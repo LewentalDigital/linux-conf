@@ -1,1 +1,0 @@
-alias lal='ls -alF'
