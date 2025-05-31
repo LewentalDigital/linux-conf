@@ -1,6 +1,6 @@
 bash-completions
 hyprland
-hyprpolkitagent
+polkit-gnome
 git
 unzip
 firefox
