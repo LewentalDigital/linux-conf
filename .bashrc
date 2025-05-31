@@ -48,21 +48,22 @@ else
 fi
 unset color_prompt force_color_prompt
 
+generate_line() {
+    printf '─%.0s' $(seq 1 $(tput cols))
+}
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --literal --sort=extension --group-directories-first --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
+PS1='\e[90m$(generate_line)\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
-alias ll='ls -lFA'
-alias l='ls -lF'
+
+alias ls='ls --literal -h --sort=extension --group-directories-first --color=auto'
+alias ll='ls -lA'
+alias l='ls -1'
+alias grep='grep --color=auto'
 
 
 bind '"\C-h": backward-kill-word'
+bind '"\e[A":history-search-backward'
+bind '"\e[B":history-search-forward'
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases

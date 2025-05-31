@@ -1,63 +1,94 @@
-bash-completions
-hyprland
-polkit-gnome
-git
-unzip
-firefox
-neovim tmux
-xfce4-terminal
-thunar
-xdg-desktop-portal-hyprland
-xdg-desktop-portal-gtk
-hyprpicker
-wl-clipbloard
-waybar
-hyprpaper
-hypridle 
-hyprlock
-fprintd
-wlsunset
-ttf-jetbrains-mono
-man
-xdg-user-dirs
-ffmpegthumbnailer
-tumbler
-brightnessctl
-playerctl
-loupe #image viewer figoo
-clapper # video player figo ma manca h264 di default
-gst-libav # plugin h264 per clapper ;DDD
-gvfs # per trash management
-papers
-network-manager-applet
+## Packages
+### Package manager
+- bash-completions
+- man
+- git
+- unzip
+- neovim
+- tmux
+- xdg-user-dirs
+<!--  -->
+- hyprland
+- xdg-desktop-portal-hyprland
+- xdg-desktop-portal-gtk
+- polkit-gnome
+- wl-clipbloard
+<!--  -->
+- hyprpicker
+- hyprpaper
+- hypridle 
+- hyprlock
+- wlsunset
+- waybar
+- network-manager-applet
+<!--  -->
+- fprintd
+- brightnessctl
+- playerctl
+<!--  -->
+- ttf-jetbrains-mono
+- ttf-nerd-fonts-symbols
+- papirus-icon-theme
+<!--  -->
+- firefox
+- xfce4-terminal
+- nautilus # file manager
+- ffmpegthumbnailer # thumbnails
+- tumbler # thumbnails
+- gvfs # trash management
+- loupe # image viewer
+- clapper # video player
+- gst-libav # h264 video plugin
+- papers # document viewer
 
-# superflui
-switcheroo # conversione immagini
-video-trimmer
-decibels
-gnome-sound-recorder
-snapshot # semplice camera, non necessaria
-papirus-icon-theme
-ocean-sound-theme
-pipewire-x11-bell
+### Unnecessary
+- switcheroo # image conversion
+- video-trimmer
+- decibels # simple audio listener
+- gnome-sound-recorder
+- gnome-calculator
+- snapshot # simple camera
+- ocean-sound-theme
+- pipewire-x11-bell
 
 
-Installed with makepkg:
-yay
+### makepkg
+- yay
 
-With yay:
+### yay
+- visual-studio-code-bin
+- pam-fprint-grosshack # simultaneous fingerprint and password authentication
 
-Con git clone
-https://github.com/simtrami/posy-improved-cursor-linux?tab=readme-ov-file # da mettere in /usr/share/icons oppure in /home/nomeutente/.icons
+### clone
+- https://github.com/simtrami/posy-improved-cursor-linux # put in /usr/share/icons or /home/username/.icons
 
 
-Configs:
-/etc/pacman.conf
+## etc configs
+
+### /etc/pacman.conf
+To enable colored pacman output and pretty print add these lines under **[options]** section
+```
 ILoveCandy
 Color
+```
 
-GSETTINGS
+### /etc/bluetooth/main.conf
+To enable fast bluetooth connection (draws more battery!), add this line under **[General]** section
+```
+FastConnectable = true
+```
+
+### /etc/pam.d/system.local-login
+To enable fingerprint login in terminal add the following lines
+```
+auth		sufficient  	pam_fprintd_grosshack.so
+auth		sufficient  	pam_unix.so try_first_pass nullok
+```
+
+## GSETTINGS
+```
 gsettings set org.gnome.desktop.wm.preferences button-layout "appmenu:minimize,maximize,close"
 gsettings set org.gnome.desktop.interface icon-theme Papirus
 gsettings set org.gnome.desktop.interface cursor-theme Posy_Cursor_Black
-gsettings set org.gnome.desktop.sound theme-name 
+gsettings set org.gnome.desktop.sound theme-name ocean
+```

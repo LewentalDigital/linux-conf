@@ -1,0 +1,39 @@
+.cache
+.cargo
+.dotnet
+.local
+.pki
+.ssh
+
+Deskop
+Documents
+Downloads
+Music
+Pictures
+Videos
+
+.config/go
+
+.config/Code/*Cookies*
+.config/Code/*Tokens*
+.config/Code/machineid
+.config/Code/TransportSecurity
+.config/Code/code.lock
+.config/Code/*Cache*
+.config/Code/*Storage*
+.config/Code/Backups
+.config/Code/Crashpad
+.config/Code/Dictionaries
+.config/Code/logs
+.config/Code/Service\ Worker
+.config/Code/Shared\ Dictionary
+
+.config/Code/User/*Storage*
+.config/Code/User/History
+
+.vscode
+
+.mozilla/firefox/Crash\ Reports
+.mozilla/firefox/*.default*
+!.mozilla/firefox/*.default*/chrome
+!.mozilla/firefox/*.default*/prefs.js
