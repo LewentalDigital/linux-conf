@@ -48,18 +48,42 @@ else
 fi
 unset color_prompt force_color_prompt
 
-generate_line() {
+print_line() {
     printf '─%.0s' $(seq 1 $(tput cols))
 }
+is_image() {
+    mime=$(file --mime-type -b "$1")
+    case "$mime" in
+        image/*)
+            return
+            ;;
+        *)
+            false
+            ;;
+    esac
+}
+cool_cat() {
+    if is_image "$1" ; then
+        viu -h $(($(tput lines)/2)) "$1"
+    else
+        bat "$1"
+    fi
+}
 
-PS1='\e[90m$(generate_line)\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+# PS1='\[\033[01;90m\]$(print_line)\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 
-alias ls='ls --literal -h --sort=extension --group-directories-first --color=auto'
+if [ -x /usr/bin/dircolors ]; then
+    alias ls='ls --literal -h --sort=extension --group-directories-first --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
 alias ll='ls -lA'
 alias l='ls -1'
-alias grep='grep --color=auto'
-
+alias cat='cool_cat'
 
 bind '"\C-h": backward-kill-word'
 bind '"\e[A":history-search-backward'
