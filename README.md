@@ -1,5 +1,7 @@
 ## Packages
 ### Package manager
+- linux-firmware # maybe preinstalled by default?
+- fwupd
 - bash-completions
 - man
 - git
@@ -7,6 +9,8 @@
 - neovim
 - tmux
 - xdg-user-dirs
+- libsecret
+- gnome-keyring
 <!--  -->
 - hyprland
 - xdg-desktop-portal-hyprland
@@ -47,10 +51,29 @@
 - decibels # simple audio listener
 - gnome-sound-recorder
 - gnome-calculator
+- font-manager
+- gnome-clocks
 - snapshot # simple camera
 - ocean-sound-theme
 - pipewire-x11-bell
+- viu
+- bat
+- gparted
+- baobab
+- sushi # instant preview for gnome files
 
+### AUDIO
+- easyeffects
+- lmms
+- calf
+- lsp-plugins-lv2
+
+
+### Cool
+- caligula
+- pastel
+- astroterm
+- graphs
 
 ### makepkg
 - yay
@@ -58,6 +81,7 @@
 ### yay
 - visual-studio-code-bin
 - pam-fprint-grosshack # simultaneous fingerprint and password authentication
+- lunacy-bin
 
 ### clone
 - https://github.com/simtrami/posy-improved-cursor-linux # put in /usr/share/icons or /home/username/.icons
@@ -79,11 +103,13 @@ FastConnectable = true
 ```
 
 ### /etc/pam.d/system.local-login
-To enable fingerprint login in terminal add the following lines
+To enable fingerprint login in terminal add the following lines at the top
 ```
 auth		sufficient  	pam_fprintd_grosshack.so
-auth		sufficient  	pam_unix.so try_first_pass nullok
 ```
+
+You can also modify other files in /etc/pam.d/{login,su,sudo,gdm,lightdm} in the same way.
+For example /etc/pam.d/polkit-1 for polkit based authentication (GNOME & many other desktop environments). If /etc/pam.d/polkit-1 does not exist, copy it from /usr/lib/pam.d/polkit-1
 
 ## GSETTINGS
 ```
@@ -91,4 +117,5 @@ gsettings set org.gnome.desktop.wm.preferences button-layout "appmenu:minimize,m
 gsettings set org.gnome.desktop.interface icon-theme Papirus
 gsettings set org.gnome.desktop.interface cursor-theme Posy_Cursor_Black
 gsettings set org.gnome.desktop.sound theme-name ocean
+gsettings set org.gnome.nautilus.preferences default-sort-order 'type'
 ```

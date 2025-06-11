@@ -48,8 +48,28 @@ else
 fi
 unset color_prompt force_color_prompt
 
+__first_prompt_shown=0
+__term_cols=$(tput cols)
+
+# Update cols on terminal resize
+update_term_cols() {
+    __term_cols=$(tput cols)
+}
+trap 'update_term_cols' WINCH
 print_line() {
-    printf '─%.0s' $(seq 1 $(tput cols))
+    if [ "$__first_prompt_shown" -eq 1 ]; then
+        printf '\033[01;90m'  # Dim gray color
+        # printf '%*s\n' "$__term_cols" '' | tr ' ' '─'
+        printf '%*s\n' "$__term_cols" '' | tr ' ' '='
+        printf '\033[0m'
+    fi
+    __first_prompt_shown=1
+}
+PROMPT_COMMAND="print_line"
+MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
+
+help() {
+    "$@" --help 2>&1 | bat -Pp --language=help
 }
 is_image() {
     mime=$(file --mime-type -b "$1")
