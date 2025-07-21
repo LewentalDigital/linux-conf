@@ -22,13 +22,16 @@
 - hyprpaper
 - hypridle 
 - hyprlock
+- hyprshot
 - wlsunset
 - waybar
 - network-manager-applet
 <!--  -->
+- upower
 - fprintd
 - brightnessctl
 - playerctl
+- batsignal
 <!--  -->
 - ttf-jetbrains-mono
 - ttf-nerd-fonts-symbols
@@ -36,6 +39,8 @@
 <!--  -->
 - firefox
 - xfce4-terminal
+- pavucontrol
+- resources
 - nautilus # file manager
 - ffmpegthumbnailer # thumbnails
 - tumbler # thumbnails
@@ -61,6 +66,8 @@
 - gparted
 - baobab
 - sushi # instant preview for gnome files
+- gradia # screeenshot annotator 
+- gnome-boxes
 
 ### AUDIO
 - easyeffects

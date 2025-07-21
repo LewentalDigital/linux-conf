@@ -66,7 +66,7 @@ print_line() {
     __first_prompt_shown=1
 }
 PROMPT_COMMAND="print_line"
-MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
+export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
 
 help() {
     "$@" --help 2>&1 | bat -Pp --language=help
@@ -90,9 +90,6 @@ cool_cat() {
     fi
 }
 
-# PS1='\[\033[01;90m\]$(print_line)\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-
-
 if [ -x /usr/bin/dircolors ]; then
     alias ls='ls --literal -h --sort=extension --group-directories-first --color=auto'
 
@@ -104,6 +101,7 @@ fi
 alias ll='ls -lA'
 alias l='ls -1'
 alias cat='cool_cat'
+alias c='clear'
 
 bind '"\C-h": backward-kill-word'
 bind '"\e[A":history-search-backward'
