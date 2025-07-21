@@ -90,7 +90,7 @@
     // EXPLORER
     "explorer.decorations.colors": false,
     "explorer.compactFolders": false,
-    "explorer.autoReveal": false,
+    "explorer.autoReveal": true,
     
     // GIT
     "scm.defaultViewMode": "tree",

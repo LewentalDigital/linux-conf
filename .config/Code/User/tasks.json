@@ -51,10 +51,10 @@
             ],
             "dependsOrder": "sequence",
             "linux": {
-                "command": "echo '\\033[0;34mRunning Python file\\033[0m\\n' && python ${file} && echo '\\n\\033[0;34mEnd of execution\\033[0m'"
+                "command": "echo -e '\\033[0;34mRunning Python file\\033[0m\\n' && python '${file}' && echo -e '\\n\\033[0;34mEnd of execution\\033[0m'"
             },
             "windows": {
-                "command": "echo 'Running Python file\\n'; python ${file}"
+                "command": "echo 'Running Python file\\n'; python '${file}'"
             }
         },
         // Java
@@ -82,7 +82,7 @@
                 }
             },
             "linux": {
-                "command": "javac '${file}' && echo '\\033[0;32mCompilation Success!\\033[0m'"
+                "command": "javac '${file}' && echo -e '\\033[0;32mCompilation Success!\\033[0m'"
             },
             "windows": {
                 "command": "javac '${file}'"
@@ -112,10 +112,10 @@
                 "printline"
             ],
             "linux": {
-                "command": "echo '\\033[0;34mRunning Java file\\033[0m\\n' && java -cp ${fileDirname} ${fileBasenameNoExtension} && echo '\\n\\033[0;34mEnd of execution\\033[0m'"
+                "command": "echo -e '\\033[0;34mRunning Java file\\033[0m\\n' && java -cp '${fileDirname}' '${fileBasenameNoExtension}' && echo -e '\\n\\033[0;34mEnd of execution\\033[0m'"
             },
             "windows": {
-                "command": "echo 'Running Java file\\n'; java -cp ${fileDirname} ${fileBasenameNoExtension}"
+                "command": "echo 'Running Java file\\n'; java -cp '${fileDirname}' '${fileBasenameNoExtension}'"
             }
         },
         {
@@ -170,7 +170,7 @@
                 }
             },
             "linux": {
-                "command": "gcc -Wall -o '${fileDirname}${pathSeparator}${fileBasenameNoExtension}' '${file}' && echo '\\033[0;32mCompilation Success!\\033[0m'"
+                "command": "gcc -Wall -o '${fileDirname}${pathSeparator}${fileBasenameNoExtension}' '${file}' && echo -e '\\033[0;32mCompilation Success!\\033[0m'"
             },
             "windows": {
                 "command": "gcc -Wall -o '${fileDirname}${pathSeparator}${fileBasenameNoExtension}' '${file}'"
@@ -200,10 +200,10 @@
                 "printline"
             ],
             "linux": {
-                "command": "echo '\\033[0;34mRunning C file\\033[0m\\n' && ${fileDirname}${pathSeparator}${fileBasenameNoExtension} && echo '\\n\\033[0;34mEnd of execution\\033[0m'"
+                "command": "echo '-e \\033[0;34mRunning C file\\033[0m\\n' && '${fileDirname}${pathSeparator}${fileBasenameNoExtension}' && echo -e '\\n\\033[0;34mEnd of execution\\033[0m'"
             },
             "windows": {
-                "command": "echo 'Running C file\\n'; ${fileDirname}${pathSeparator}${fileBasenameNoExtension}"
+                "command": "echo 'Running C file\\n'; '${fileDirname}${pathSeparator}${fileBasenameNoExtension}'"
             }
         },
         {
@@ -258,7 +258,7 @@
                 }
             },
             "linux": {
-                "command": "g++ -Wall -o '${fileDirname}${pathSeparator}${fileBasenameNoExtension}' '${file}' && echo '\\033[0;32mCompilation Success!\\033[0m'"
+                "command": "g++ -Wall -o '${fileDirname}${pathSeparator}${fileBasenameNoExtension}' '${file}' && echo -e '\\033[0;32mCompilation Success!\\033[0m'"
             },
             "windows": {
                 "command": "g++ -Wall -o '${fileDirname}${pathSeparator}${fileBasenameNoExtension}' '${file}'"
@@ -288,10 +288,10 @@
                 "printline"
             ],
             "linux":{
-                "command": "echo '\\033[0;34mRunning C++ file\\033[0m\\n' && ${fileDirname}${pathSeparator}${fileBasenameNoExtension} && echo '\\n\\033[0;34mEnd of execution\\033[0m'"
+                "command": "echo -e '\\033[0;34mRunning C++ file\\033[0m\\n' && '${fileDirname}${pathSeparator}${fileBasenameNoExtension}' && echo -e '\\n\\033[0;34mEnd of execution\\033[0m'"
             },
             "windows":{
-                "command": "echo 'Running C++ file\\n'; ${fileDirname}${pathSeparator}${fileBasenameNoExtension}"
+                "command": "echo 'Running C++ file\\n'; '${fileDirname}${pathSeparator}${fileBasenameNoExtension}'"
             }
         },
         {
