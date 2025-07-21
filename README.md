@@ -49,6 +49,11 @@
 - clapper # video player
 - gst-libav # h264 video plugin
 - papers # document viewer
+- tesseract-eng # ocr
+- tesseract-ita
+- gnome-bluetooth-3.0 ?????
+- python-jinja
+- dart-sass
 
 ### Unnecessary
 - switcheroo # image conversion
@@ -89,6 +94,11 @@
 - visual-studio-code-bin
 - pam-fprint-grosshack # simultaneous fingerprint and password authentication
 - lunacy-bin
+- hyprshell
+- goignis
+- gpu-screen-recorder ???
+- python-ignis-git
+- python-materialyoucolor
 
 ### clone
 - https://github.com/simtrami/posy-improved-cursor-linux # put in /usr/share/icons or /home/username/.icons
