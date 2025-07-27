@@ -9,6 +9,7 @@ audio/x-vorbis+ogg=org.gnome.Decibels.desktop;
 application/pdf=org.gnome.Papers.desktop;
 application/x-zerosize=code.desktop;
 application/json=code.desktop;
+image/heif=org.gnome.Loupe.desktop;
 
 [Default Applications]
 text/plain=code.desktop
@@ -20,3 +21,4 @@ video/mp4=com.github.rafostar.Clapper.desktop;
 audio/x-vorbis+ogg=org.gnome.Decibels.desktop
 application/pdf=org.gnome.Papers.desktop
 application/json=code.desktop
+image/heif=org.gnome.Loupe.desktop

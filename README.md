@@ -11,6 +11,7 @@
 - xdg-user-dirs
 - libsecret
 - gnome-keyring
+- xorg-xhost
 <!--  -->
 - hyprland
 - xdg-desktop-portal-hyprland
@@ -29,9 +30,12 @@
 <!--  -->
 - upower
 - fprintd
+- bluez
+- bluez-utils
 - brightnessctl
 - playerctl
 - batsignal
+- wl-clip-persist
 <!--  -->
 - ttf-jetbrains-mono
 - ttf-nerd-fonts-symbols
@@ -40,6 +44,7 @@
 - firefox
 - xfce4-terminal
 - pavucontrol
+- blueman
 - resources
 - nautilus # file manager
 - ffmpegthumbnailer # thumbnails
@@ -49,6 +54,7 @@
 - clapper # video player
 - gst-libav # h264 video plugin
 - papers # document viewer
+- kdeconnect
 - tesseract-eng # ocr
 - tesseract-ita
 - gnome-bluetooth-3.0 ?????
@@ -69,6 +75,7 @@
 - viu
 - bat
 - gparted
+- pdfarranger
 - baobab
 - sushi # instant preview for gnome files
 - gradia # screeenshot annotator 
@@ -99,6 +106,7 @@
 - gpu-screen-recorder ???
 - python-ignis-git
 - python-materialyoucolor
+- bibata-cursor-theme
 
 ### clone
 - https://github.com/simtrami/posy-improved-cursor-linux # put in /usr/share/icons or /home/username/.icons
@@ -135,4 +143,10 @@ gsettings set org.gnome.desktop.interface icon-theme Papirus
 gsettings set org.gnome.desktop.interface cursor-theme Posy_Cursor_Black
 gsettings set org.gnome.desktop.sound theme-name ocean
 gsettings set org.gnome.nautilus.preferences default-sort-order 'type'
+```
+
+## RUN COMMANDS
+To allow gparted to start
+```
+xhost si:localuser:root
 ```
