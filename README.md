@@ -150,3 +150,23 @@ To allow gparted to start
 ```
 xhost si:localuser:root
 ```
+
+## HIBERNATION
+Create swapfile following Arch guide, enable restore with systemd-boot
+https://wiki.archlinux.org/title/Swap#Swap_file
+https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate
+
+/boot/loader/entries/blabla.conf
+```
+# Created by: archinstall
+# Created on: 2025-05-13_09-32-00
+title   Arch Linux (linux)
+linux   /vmlinuz-linux
+initrd  /initramfs-linux.img
+options root=PARTUUID=d27988a2-9ad5... zswap.enabled=0 rw rootfstype=ext4 quiet splash resume=UUID=a8c4225c... resume_offset=...
+```
+Add following line to /etc/mkinitcpio.conf
+```
+HOOKS=(base udev autodetect microcode modconf kms keyboard keymap consolefont block resume filesystems fsck)
+```
+
