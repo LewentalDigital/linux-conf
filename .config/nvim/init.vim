@@ -22,6 +22,15 @@ autocmd VimEnter * if (argc() > 0 && filereadable(argv()[0])) | wincmd l | endif
 colorscheme unokai
 highlight Normal ctermbg=none guibg=none
 
+" " Copy to clipboard
+nnoremap y "+y
+vnoremap y "+y
+nnoremap yy "+yy
+
+" " Paste from clipboard
+nnoremap p "+p
+vnoremap p "+p
+
 nnoremap <C-s> <Esc>:w<CR>
 nnoremap <C-q> <Esc>:q<CR>
 nnoremap <Space>w <Esc>:w<CR>
